@@ -1,9 +1,7 @@
-### To prove tensorflow can be installed easily
+### To Prove Tensorflow Can Be Installed Easily
 
 Run this command to install required packages.
 
 ```
-pip 
+pip install -r requirements 
 ```
-
-fasdfsfd
