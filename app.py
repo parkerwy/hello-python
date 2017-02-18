@@ -3,6 +3,7 @@ import os
 import tensorflow as tf
 from logging.config import fileConfig
 from flask import Flask
+from flask import request
 from flask import jsonify
 
 fileConfig('logging_config.ini')
@@ -15,13 +16,18 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     logger.info('processing home request.')
-    return 'Hello World! I am running'
+    return 'Hello World! I am running...'
 
 
 @app.errorhandler(Exception)
 def handle_exception(e):
     logger.error(e)
-    return 'Error: ' + str(e)
+    return "Error: {}".format(e), 500
+
+
+@app.errorhandler(404)
+def handle_404(e):
+    return "[{}] is not found.".format(request.base_url), 404
 
 
 @app.route('/tensorflow')
