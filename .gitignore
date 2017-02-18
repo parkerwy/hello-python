@@ -1,2 +1,6 @@
 /venv
 /vendor/**
+
+
+/.idea
+/*.iml

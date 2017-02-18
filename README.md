@@ -1,11 +1,5 @@
-### To Prove Tensorflow Can Be Installed Easily
+### Python Web Application
 
-Run this command to install required packages.
-```
-pip install -r requirements.txt 
-```
-
-Run this command to download required packages.
-```
-pip download -r requirements.txt -d vendor
-```
+Powered by
+- Flask
+- Tensorflow

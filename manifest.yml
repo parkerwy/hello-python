@@ -1,0 +1,4 @@
+---
+applications:
+- name: parkerwy-hello-python
+  memory: 256M
