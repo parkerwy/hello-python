@@ -22,7 +22,7 @@ def home():
 @app.errorhandler(Exception)
 def handle_exception(e):
     logger.error(e)
-    return "Error: {}".format(e), 500
+    return "Error [{}] occurred when processing request [{}]".format(e, request.base_url), 500
 
 
 @app.errorhandler(404)
@@ -42,7 +42,7 @@ def tensorflow():
     b = tf.constant(32)
     number = sess.run(a + b).item()
     logger.info(number)
-    return jsonify(message=message, number=number)
+    return jsonify(message=hello, number=number)
 
 
 if __name__ == '__main__':
