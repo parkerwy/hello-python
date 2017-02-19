@@ -1,10 +1,12 @@
 import logging
 import os
-import tensorflow as tf
 from logging.config import fileConfig
+
+import tensorflow as tf
 from flask import Flask
-from flask import request
 from flask import jsonify
+from flask import request
+from flask import render_template
 
 fileConfig('logging_config.ini')
 logger = logging.getLogger('app')
@@ -15,13 +17,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    logger.info('processing home request.')
-    return 'Hello World! I am running...'
+    return render_template('home.html')
 
 
 @app.errorhandler(Exception)
 def handle_exception(e):
-    logger.error(e)
+    logger.exception(e)
     return "Error [{}] occurred when processing request [{}]".format(e, request.base_url), 500
 
 
@@ -42,7 +43,7 @@ def tensorflow():
     b = tf.constant(32)
     number = sess.run(a + b).item()
     logger.info(number)
-    return jsonify(message=hello, number=number)
+    return jsonify(message=message, number=number)
 
 
 if __name__ == '__main__':
