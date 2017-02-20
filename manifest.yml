@@ -2,3 +2,10 @@
 applications:
 - name: parkerwy-hello-python
   memory: 256M
+
+# Define below environment variables when using pypi mirror repository
+# env:
+#   PIP_DEFAULT_TIMEOUT: 600
+#   PIP_TRUSTED_HOST: <host of pypi mirror site>
+#   PIP_INDEX: <pypi mirror site>/pypi
+#   PIP_INDEX_URL: <pypi mirror site>/simple
